@@ -3,867 +3,1197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wong Ket Pong — Insurance Agent | Tokio Marine Insurans (Malaysia) Berhad</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Wong Ket Pong - Trusted Tokio Marine Insurance Agent in Kota Kinabalu, Sabah with 30+ years experience. Property, Motor, Medical, Personal Accident & Travel Insurance.">
+<title>Wong Ket Pong | Tokio Marine Insurance Advisor | Kota Kinabalu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --blue:        #0A8AD2;
-    --blue-mid:    #0770b0;
-    --blue-deep:   #054f80;
-    --gold:        #C8960C;
-    --gold-light:  #e8b835;
-    --ink:         #0b1a26;
-    --ink-mid:     #132333;
-    --paper:       #f3f6f9;
-    --paper-warm:  #eef2f6;
-    --white:       #ffffff;
-    --rule:        rgba(10,138,210,0.16);
-    --body-text:   #2d4458;
-    --muted:       #6b8ba4;
+    --navy: #0a1628;
+    --navy-mid: #132040;
+    --blue: #1a5fa8;
+    --blue-light: #2176c7;
+    --blue-pale: #e8f1fb;
+    --gold: #c9a227;
+    --gold-light: #e5c35a;
+    --white: #ffffff;
+    --gray-50: #f7f9fc;
+    --gray-100: #eef2f7;
+    --gray-200: #d9e2ee;
+    --gray-500: #6b7a99;
+    --gray-700: #3d4a63;
+    --text: #1a2340;
+    --radius: 16px;
+    --shadow-sm: 0 2px 12px rgba(10,22,40,0.08);
+    --shadow-md: 0 8px 32px rgba(10,22,40,0.12);
+    --shadow-lg: 0 20px 60px rgba(10,22,40,0.18);
+    --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--paper);
-    color: var(--body-text);
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
     overflow-x: hidden;
   }
 
-  /* ─── LETTERHEAD HEADER ─── */
-  header {
-    background: var(--ink);
-    color: var(--white);
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
 
-  /* Subtle grid pattern */
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(10,138,210,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(10,138,210,0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-  }
-
-  /* Top rule — TM blue + gold */
-  header::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--blue) 0%, var(--blue-mid) 60%, var(--gold) 100%);
-  }
-
-  .header-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 72px 60px 64px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 40px;
-  }
-
-  .header-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .header-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 28px; height: 1px;
-    background: var(--blue);
-  }
-
-  .header-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 6vw, 5.2rem);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.01em;
-    color: var(--white);
-  }
-  .header-name .given { font-style: italic; color: var(--gold-light); }
-
-  .header-designation {
-    margin-top: 18px;
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* Right: TM emblem column */
-  .header-emblem {
-    text-align: right;
-    padding-bottom: 6px;
-  }
-  .tm-shield {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  .tm-icon-wrap {
-    width: 68px; height: 68px;
-    border: 1.5px solid rgba(10,138,210,0.4);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(10,138,210,0.08);
-    font-size: 2rem;
-  }
-  .tm-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-    line-height: 1.5;
-  }
-  .tm-text strong {
-    display: block;
-    color: rgba(255,255,255,0.7);
-    font-weight: 500;
-  }
-
-  /* Bottom rule of header */
-  .header-rule {
-    position: relative;
-    z-index: 1;
-    max-width: 1080px;
-    margin: 0 auto 0;
-    padding: 0 60px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-bottom: 28px;
-  }
-  .header-rule::before {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(10,138,210,0.25);
-  }
-  .header-rule-diamond {
-    width: 7px; height: 7px;
-    background: var(--gold);
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
-  .header-rule::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(10,138,210,0.25);
-  }
-
-  /* ─── NAV STRIP ─── */
+  /* ── NAVBAR ── */
   nav {
-    background: var(--ink-mid);
-    border-bottom: 1px solid rgba(10,138,210,0.2);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .nav-inner {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav-links {
-    display: flex;
-  }
-  .nav-links a {
-    display: inline-block;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 16px 20px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .nav-links a:hover {
-    color: var(--white);
-    border-bottom-color: var(--blue);
-  }
-  .nav-contact {
-    font-size: 0.72rem;
-    color: var(--blue);
-    letter-spacing: 0.06em;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 72px;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: var(--transition);
   }
 
-  /* ─── PAGE BODY ─── */
-  .page-body {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 60px;
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 36px; }
+  .nav-logo-text { color: var(--white); font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; line-height: 1.2; }
+  .nav-logo-sub { color: var(--gold-light); font-size: 0.7rem; font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: 0.05em; }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.02em; transition: var(--transition); }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    color: var(--white); border: none; padding: 10px 22px;
+    border-radius: 8px; font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: var(--transition);
+    box-shadow: 0 4px 16px rgba(26,95,168,0.4);
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,95,168,0.5); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative; overflow: hidden;
   }
 
-  /* ─── SECTION STYLES ─── */
-  .section {
-    padding: 80px 0;
-    border-bottom: 1px solid rgba(10,138,210,0.1);
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(26,95,168,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,162,39,0.12) 0%, transparent 50%);
   }
-  .section:last-child { border-bottom: none; }
+
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 80px; align-items: center;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.35);
+    color: var(--gold-light); padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .hero-badge::before { content: '★'; font-size: 0.75rem; }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    color: var(--white); line-height: 1.15;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.7s ease 0.1s both;
+  }
+
+  .hero-title span { color: var(--gold-light); display: block; }
+
+  .hero-subtitle {
+    color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.75;
+    max-width: 540px; margin-bottom: 36px;
+    animation: fadeInUp 0.7s ease 0.2s both;
+  }
+
+  .hero-stats {
+    display: flex; gap: 36px; margin-bottom: 40px;
+    animation: fadeInUp 0.7s ease 0.3s both;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .hero-stat .num span { color: var(--gold-light); }
+  .hero-stat .label { color: rgba(255,255,255,0.55); font-size: 0.78rem; margin-top: 4px; letter-spacing: 0.03em; }
+
+  .hero-stat-divider { width: 1px; background: rgba(255,255,255,0.15); }
+
+  .hero-buttons {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.4s both;
+  }
+
+  .btn-whatsapp {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366; color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: var(--transition);
+  }
+  .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(37,211,102,0.5); }
+
+  .btn-consult {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: var(--transition);
+  }
+  .btn-consult:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); transform: translateY(-3px); }
+
+  .hero-image-wrap {
+    position: relative;
+    animation: fadeInRight 0.8s ease 0.3s both;
+  }
+
+  .hero-image-bg {
+    position: absolute; inset: -20px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--navy-mid) 100%);
+    border-radius: 28px; z-index: 0;
+    opacity: 0.5;
+  }
+
+  .hero-image-frame {
+    position: relative; z-index: 1;
+    border-radius: 24px; overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.12);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hero-image-frame img {
+    width: 100%; height: 480px;
+    object-fit: cover; object-position: center top;
+    display: block;
+  }
+
+  .hero-image-badge {
+    position: absolute; bottom: -20px; left: -20px; z-index: 2;
+    background: var(--white); border-radius: 16px;
+    padding: 16px 20px; box-shadow: var(--shadow-md);
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .hero-image-badge .icon { font-size: 2rem; }
+  .hero-image-badge .text strong { display: block; color: var(--navy); font-size: 1rem; font-weight: 700; }
+  .hero-image-badge .text span { color: var(--gray-500); font-size: 0.8rem; }
+
+  .hero-tm-badge {
+    position: absolute; top: -16px; right: -16px; z-index: 2;
+    background: var(--white); border-radius: 12px;
+    padding: 10px 14px; box-shadow: var(--shadow-md);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hero-tm-badge img { height: 28px; }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100);
+    padding: 20px 5%;
+  }
+
+  .trust-bar-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 20px;
+  }
+
+  .trust-item { display: flex; align-items: center; gap: 10px; }
+  .trust-item .icon { font-size: 1.3rem; }
+  .trust-item span { font-size: 0.85rem; font-weight: 500; color: var(--gray-700); }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 96px 5%; }
 
   .section-label {
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-label::before {
-    content: '';
-    display: inline-block;
-    width: 20px; height: 1px;
-    background: var(--blue);
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-  .section-title em { font-style: italic; color: var(--blue-mid); }
-
-  /* ─── PROFILE SECTION ─── */
-  .profile-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 72px;
-    align-items: start;
-  }
-
-  .profile-text p {
-    margin-bottom: 18px;
-    font-size: 0.97rem;
-    line-height: 1.8;
-    color: var(--body-text);
-  }
-  .profile-text p:first-of-type::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 0.75;
-    float: left;
-    margin-right: 8px;
-    margin-top: 6px;
-    color: var(--blue);
-  }
-
-  .profile-qualities {
-    margin-top: 36px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid var(--rule);
-  }
-  .quality-item {
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 0.87rem;
-    color: var(--body-text);
-  }
-  .quality-item::before {
-    content: '—';
-    color: var(--blue);
-    font-weight: 300;
-    flex-shrink: 0;
-  }
-
-  /* Credential card */
-  .credential-card {
-    background: var(--white);
-    border: 1px solid rgba(10,138,210,0.18);
-    border-top: 3px solid var(--blue);
-    border-radius: 2px;
-    padding: 36px 32px;
-    box-shadow: 0 4px 24px rgba(10,138,210,0.07);
-  }
-
-  .cred-company {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 20px;
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .cred-icon {
-    width: 44px; height: 44px;
-    background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    flex-shrink: 0;
-  }
-  .cred-co-name strong {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 1.3;
-  }
-  .cred-co-name span {
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-
-  .cred-field {
-    margin-bottom: 16px;
-  }
-  .cred-field-label {
-    font-size: 0.6rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 3px;
-  }
-  .cred-field-value {
-    font-size: 0.9rem;
-    color: var(--ink);
-    line-height: 1.5;
-  }
-  .cred-field-value a {
-    color: var(--blue-mid);
-    text-decoration: none;
-  }
-  .cred-field-value a:hover { text-decoration: underline; }
-
-  .cred-stat-row {
-    display: flex;
-    gap: 0;
-    margin-top: 28px;
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
-  }
-  .cred-stat {
-    flex: 1;
-    text-align: center;
-    padding: 0 12px;
-    border-right: 1px solid var(--rule);
-  }
-  .cred-stat:last-child { border-right: none; }
-  .cred-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--blue);
-    line-height: 1;
-  }
-  .cred-stat-lbl {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* ─── SERVICES SECTION ─── */
-  .services-section {
-    background: var(--ink);
-    padding: 80px 0;
-    color: var(--white);
-  }
-  .services-section .section-label { color: var(--gold-light); }
-  .services-section .section-label::before { background: var(--gold-light); }
-  .services-section .section-title { color: var(--white); }
-  .services-section .section-title em { color: var(--gold-light); }
-
-  .services-intro {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.55);
-    max-width: 560px;
-    margin-bottom: 52px;
-    margin-top: 12px;
-  }
-
-  .services-table {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px;
-    background: rgba(10,138,210,0.15);
-    border: 1px solid rgba(10,138,210,0.15);
-  }
-  .svc-cell {
-    background: var(--ink-mid);
-    padding: 32px 28px;
-    transition: background 0.2s;
-  }
-  .svc-cell:hover {
-    background: rgba(10,138,210,0.1);
-  }
-  .svc-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem;
-    font-weight: 300;
-    color: rgba(10,138,210,0.25);
-    line-height: 1;
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--blue); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     margin-bottom: 14px;
   }
-  .svc-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .svc-desc {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.65;
+  .section-label::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; }
+
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.2; margin-bottom: 16px; color: var(--navy); }
+  .section-desc { color: var(--gray-500); font-size: 1.05rem; line-height: 1.75; max-width: 600px; }
+
+  .container { max-width: 1200px; margin: 0 auto; width: 100%; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 460px 1fr;
+    gap: 80px; align-items: start;
   }
 
-  /* ─── CONTACT SECTION ─── */
-  .contact-section { background: var(--paper-warm); }
+  .about-image-wrap { position: relative; }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 72px;
-    align-items: start;
+  .about-img {
+    width: 100%; border-radius: 24px; overflow: hidden;
+    box-shadow: var(--shadow-lg);
   }
+  .about-img img { width: 100%; height: 500px; object-fit: cover; object-position: center top; display: block; }
 
-  .contact-text p {
-    font-size: 0.95rem;
-    margin-bottom: 16px;
-    color: var(--body-text);
+  .about-card {
+    position: absolute; bottom: 30px; right: -30px;
+    background: var(--navy); color: var(--white);
+    border-radius: 20px; padding: 24px 28px;
+    box-shadow: var(--shadow-lg); max-width: 240px;
   }
+  .about-card .num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+  .about-card p { font-size: 0.88rem; color: rgba(255,255,255,0.75); margin-top: 6px; line-height: 1.5; }
 
-  .contact-table {
-    margin-top: 36px;
-    border-top: 1px solid var(--rule);
-  }
-  .ct-row {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--rule);
-    font-size: 0.88rem;
-    align-items: baseline;
-  }
-  .ct-label {
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .ct-value {
-    color: var(--ink);
-    line-height: 1.5;
-  }
-  .ct-value a {
-    color: var(--blue-mid);
-    text-decoration: none;
-    font-weight: 400;
-  }
-  .ct-value a:hover { text-decoration: underline; }
+  .about-content { padding-top: 8px; }
 
-  /* Action card */
-  .action-card {
-    background: var(--ink);
-    border-radius: 2px;
-    padding: 44px 36px;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-  }
-  .action-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--gold));
-  }
-  .action-card-eyebrow {
-    font-size: 0.62rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 16px;
-  }
-  .action-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--white);
-    margin-bottom: 14px;
-  }
-  .action-card h3 em { font-style: italic; color: var(--gold-light); }
-  .action-card p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 32px;
-    line-height: 1.7;
+  .about-quote {
+    background: var(--blue-pale); border-left: 4px solid var(--blue);
+    border-radius: 0 12px 12px 0; padding: 20px 24px;
+    margin: 24px 0; color: var(--navy-mid); font-style: italic;
+    font-size: 1rem; line-height: 1.7;
   }
 
-  .action-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .about-text { color: var(--gray-700); font-size: 0.98rem; line-height: 1.8; margin-bottom: 16px; }
+
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+
+  .about-value {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--gray-50); border-radius: 12px; padding: 16px;
   }
-  .btn-solid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--blue);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 14px 24px;
-    border-radius: 2px;
-    transition: background 0.2s;
+  .about-value .icon { font-size: 1.4rem; flex-shrink: 0; }
+  .about-value strong { display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; }
+  .about-value span { font-size: 0.8rem; color: var(--gray-500); line-height: 1.4; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--gray-50); }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+
+  .service-card {
+    background: var(--white); border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100);
+    transition: var(--transition); cursor: pointer;
   }
-  .btn-solid:hover { background: var(--blue-mid); }
-  .btn-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 1px solid rgba(10,138,210,0.35);
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 13px 24px;
-    border-radius: 2px;
-    transition: border-color 0.2s, color 0.2s;
+  .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(26,95,168,0.2); }
+  .service-card:hover .service-icon-wrap { background: var(--blue); }
+  .service-card:hover .service-icon { filter: brightness(0) invert(1); }
+
+  .service-card-top { padding: 28px 28px 20px; }
+
+  .service-icon-wrap {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: var(--blue-pale); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; transition: var(--transition);
   }
-  .btn-line:hover {
-    border-color: var(--blue);
-    color: var(--white);
+  .service-icon { font-size: 1.75rem; }
+
+  .service-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .service-desc { font-size: 0.88rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 16px; }
+
+  .service-benefits { list-style: none; margin-bottom: 20px; }
+  .service-benefits li {
+    font-size: 0.83rem; color: var(--gray-700); padding: 5px 0;
+    display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--gray-100);
+  }
+  .service-benefits li:last-child { border-bottom: none; }
+  .service-benefits li::before { content: '✓'; color: var(--blue); font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+
+  .service-suitable {
+    background: var(--blue-pale); border-radius: 0 0 20px 20px;
+    padding: 14px 28px;
+    font-size: 0.8rem; color: var(--blue); font-weight: 600;
+  }
+  .service-suitable span { color: var(--gray-700); font-weight: 400; }
+
+  /* ── WHY CHOOSE ── */
+  #why {
+    background: var(--navy);
+    position: relative; overflow: hidden;
   }
 
-  /* ─── FOOTER ─── */
+  #why::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(26,95,168,0.3) 0%, transparent 55%);
+  }
+
+  #why .section-label { color: var(--gold-light); }
+  #why .section-label::before { background: var(--gold-light); }
+  #why .section-title { color: var(--white); }
+  #why .section-desc { color: rgba(255,255,255,0.6); }
+
+  .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+
+  .why-card {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 32px 28px;
+    transition: var(--transition); position: relative;
+  }
+  .why-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-6px); border-color: rgba(201,162,39,0.3); }
+
+  .why-icon { font-size: 2.2rem; margin-bottom: 20px; }
+  .why-title { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .why-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  .why-num {
+    position: absolute; top: 24px; right: 24px;
+    font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+    color: rgba(255,255,255,0.06); line-height: 1;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+
+  .testimonial-card {
+    background: var(--gray-50); border-radius: 20px; padding: 32px 28px;
+    border: 1px solid var(--gray-100); position: relative;
+    transition: var(--transition);
+  }
+  .testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+  .testimonial-quote { font-size: 3rem; color: var(--blue); line-height: 0.5; margin-bottom: 16px; font-family: Georgia, serif; }
+
+  .testimonial-text { font-size: 0.92rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 24px; }
+
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .testimonial-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: 1rem;
+  }
+  .testimonial-author strong { display: block; font-size: 0.92rem; color: var(--navy); }
+  .testimonial-author span { font-size: 0.78rem; color: var(--gray-500); }
+
+  .testimonial-stars { color: #f59e0b; font-size: 0.85rem; margin-top: 6px; letter-spacing: 2px; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--gray-50); }
+
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+
+  .faq-item {
+    background: var(--white); border-radius: 16px; overflow: hidden;
+    border: 1px solid var(--gray-100); box-shadow: var(--shadow-sm);
+  }
+
+  .faq-question {
+    width: 100%; background: none; border: none; cursor: pointer;
+    padding: 22px 24px; text-align: left;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; font-size: 0.95rem; font-weight: 600; color: var(--navy);
+    font-family: 'DM Sans', sans-serif; transition: var(--transition);
+  }
+  .faq-question:hover { color: var(--blue); }
+
+  .faq-toggle {
+    width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+    background: var(--blue-pale); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: var(--transition);
+  }
+  .faq-item.open .faq-toggle { background: var(--blue); color: var(--white); transform: rotate(45deg); }
+
+  .faq-answer {
+    padding: 0 24px; max-height: 0; overflow: hidden; transition: var(--transition);
+    font-size: 0.9rem; color: var(--gray-500); line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { padding: 0 24px 22px; max-height: 200px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+
+  .contact-info { }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 0; border-bottom: 1px solid var(--gray-100);
+  }
+  .contact-item:last-of-type { border-bottom: none; }
+  .contact-icon {
+    width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+    background: var(--blue-pale); display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .contact-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-500); margin-bottom: 4px; }
+  .contact-item a, .contact-item p { color: var(--navy); font-weight: 500; font-size: 0.95rem; text-decoration: none; line-height: 1.5; }
+  .contact-item a:hover { color: var(--blue); }
+
+  .contact-map {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: var(--shadow-md); height: 380px;
+    border: 1px solid var(--gray-200);
+  }
+  .contact-map iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  .contact-cta-row { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366; color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    transition: var(--transition);
+  }
+  .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+
+  .btn-call {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: var(--white);
+    padding: 14px 28px; border-radius: 12px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: var(--transition);
+  }
+  .btn-call:hover { background: var(--blue); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
   footer {
-    background: #060f17;
-    border-top: 1px solid rgba(10,138,210,0.12);
-    padding: 32px 60px;
-    max-width: 100%;
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 48px 5% 32px; text-align: center;
   }
-  .footer-inner {
-    max-width: 1080px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+  footer .footer-logo { margin-bottom: 16px; }
+  footer .footer-logo img { height: 40px; opacity: 0.9; }
+  footer p { font-size: 0.85rem; line-height: 1.8; }
+  footer .footer-links { display: flex; justify-content: center; gap: 28px; margin: 16px 0; flex-wrap: wrap; }
+  footer .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: var(--transition); }
+  footer .footer-links a:hover { color: var(--gold-light); }
+  footer .footer-divider { height: 1px; background: rgba(255,255,255,0.1); margin: 24px 0; }
+  footer .copyright { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  /* ── FLOATING WA ── */
+  .float-wa {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    text-decoration: none; transition: var(--transition);
+    animation: pulse-wa 2.5s infinite;
   }
-  .footer-left {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.4);
+  .float-wa:hover { transform: scale(1.12); box-shadow: 0 10px 40px rgba(37,211,102,0.6); }
+  .float-wa svg { width: 30px; height: 30px; fill: white; }
+
+  .float-wa-tooltip {
+    position: absolute; right: 72px; white-space: nowrap;
+    background: var(--navy); color: var(--white);
+    padding: 8px 14px; border-radius: 8px; font-size: 0.82rem; font-weight: 600;
+    opacity: 0; transform: translateX(8px); transition: var(--transition);
+    pointer-events: none;
   }
-  .footer-left strong { color: rgba(255,255,255,0.7); font-weight: 600; }
-  .footer-right {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.25);
-    text-align: right;
+  .float-wa:hover .float-wa-tooltip { opacity: 1; transform: translateX(0); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(32px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes pulse-wa {
+    0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+    50% { box-shadow: 0 6px 28px rgba(37,211,102,0.5), 0 0 0 14px rgba(37,211,102,0.12); }
   }
 
-  /* ─── SCROLL REVEAL ─── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
+  .fade-in {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.08s; }
-  .reveal-d2 { transition-delay: 0.16s; }
-  .reveal-d3 { transition-delay: 0.24s; }
-  .reveal-d4 { transition-delay: 0.32s; }
-  .reveal-d5 { transition-delay: 0.40s; }
-  .reveal-d6 { transition-delay: 0.48s; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 860px) {
-    .header-inner { grid-template-columns: 1fr; gap: 28px; padding: 56px 28px 40px; }
-    .header-rule { padding: 0 28px 24px; }
-    .header-emblem { text-align: left; }
-    .nav-inner { padding: 0 28px; }
-    .nav-contact { display: none; }
-    .page-body { padding: 0 28px; }
-    .profile-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
-    .services-table { grid-template-columns: 1fr 1fr; }
-    .services-section { padding: 60px 28px; }
-    footer { padding: 28px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
-    .footer-right { text-align: left; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr 340px; gap: 48px; }
+    .about-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 540px) {
-    .services-table { grid-template-columns: 1fr; }
-    .header-name { font-size: 2.8rem; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 5%; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0;
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: var(--navy); padding: 16px 5% 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      z-index: 999;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      padding: 14px 0; font-size: 1rem; font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    #hero { padding: 90px 5% 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-image-wrap { max-width: 340px; margin: 0 auto; }
+    .hero-stats { gap: 24px; }
+    .hero-image-frame img { height: 380px; }
+    .hero-buttons { flex-direction: column; }
+    .btn-whatsapp, .btn-consult { justify-content: center; }
+
+    .about-grid { grid-template-columns: 1fr; }
+    .about-card { position: relative; right: auto; bottom: auto; margin-top: 20px; }
+    .about-values { grid-template-columns: 1fr; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    section { padding: 64px 5%; }
+
+    .contact-map { height: 280px; }
+    .contact-cta-row { flex-direction: column; }
+    .btn-wa, .btn-call { justify-content: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- ─── HEADER ─── -->
-<header>
-  <div class="header-inner">
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="Tokio Marine">
     <div>
-      <div class="header-eyebrow">Licensed Insurance Agent</div>
-      <h1 class="header-name">Wong&nbsp;<span class="given">Ket&nbsp;Pong</span></h1>
-      <p class="header-designation">Tokio Marine Insurans (Malaysia) Berhad &nbsp;·&nbsp; Kota Kinabalu, Sabah</p>
+      <div class="nav-logo-text">Wong Ket Pong</div>
+      <div class="nav-logo-sub">Licensed Insurance Advisor</div>
     </div>
-    <div class="header-emblem">
-      <div class="tm-shield">
-        <div class="tm-icon-wrap">🛡️</div>
-        <div class="tm-text">
-          <strong>Tokio Marine</strong>
-          Insurans (Malaysia)<br>Berhad
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="header-rule">
-    <div class="header-rule-diamond"></div>
-  </div>
-</header>
-
-<!-- ─── NAV ─── -->
-<nav>
-  <div class="nav-inner">
-    <div class="nav-links">
-      <a href="#profile">Profile</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-contact">019-881 0881</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://wa.me/60198810881?text=Hi%20Mr.%20Wong,%20I%20would%20like%20a%20free%20insurance%20consultation." class="nav-cta" target="_blank">Free Consultation</a>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ─── MAIN ─── -->
-<main>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#why">Why Choose Me</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
 
-  <!-- PROFILE -->
-  <div class="page-body" id="profile">
-    <div class="section">
-      <div class="profile-grid">
-        <div class="profile-text reveal">
-          <div class="section-label">Professional Profile</div>
-          <h2 class="section-title">A Trusted Name in<br><em>Insurance for Over 30 Years</em></h2>
-          <br>
-          <p>Wong Ket Pong is a seasoned, licensed insurance agent based in Kota Kinabalu, Sabah, representing Tokio Marine Insurans (Malaysia) Berhad — one of Asia's most established and respected insurance groups with a heritage dating back to 1879.</p>
-          <p>Over more than three decades of professional service, he has guided hundreds of individuals, families, and business owners across Sabah in securing the right protection for their most valued assets. His approach is grounded in integrity, patience, and a genuine commitment to his clients' long-term wellbeing.</p>
-          <p>From selecting the most appropriate policy to navigating claims, clients can expect clear guidance and dependable support at every stage.</p>
-          <div class="profile-qualities">
-            <div class="quality-item">Honest, transparent advice — no pressure, no jargon</div>
-            <div class="quality-item">Fluent in English, Bahasa Malaysia &amp; Mandarin</div>
-            <div class="quality-item">Dedicated support from application through to claims</div>
-            <div class="quality-item">Serving individuals, families and businesses across Sabah</div>
-          </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Tokio Marine Authorized Agent</div>
+      <h1 class="hero-title">
+        Your Trusted Protection <span>Since 1993</span>
+      </h1>
+      <p class="hero-subtitle">
+        For over 30 years, I've helped families, business owners, and working adults across Sabah safeguard what matters most — with personalised advice, fast claim support, and genuine long-term care.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">30<span>+</span></div>
+          <div class="label">Years Experience</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="num">500<span>+</span></div>
+          <div class="label">Clients Protected</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="num">5</div>
+          <div class="label">Coverage Types</div>
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="https://wa.me/60198810881?text=Hi%20Mr.%20Wong,%20I%20would%20like%20a%20free%20insurance%20consultation." class="btn-whatsapp" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Now
+        </a>
+        <a href="#contact" class="btn-consult">
+          📞 Get Free Consultation
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="hero-image-bg"></div>
+      <div class="hero-tm-badge">
+        <img src="data:image/png;base64,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" alt="Tokio Marine">
+      </div>
+      <div class="hero-image-frame">
+        <img src="data:image/png;base64,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" alt="Wong Ket Pong - Insurance Advisor">
+      </div>
+      <div class="hero-image-badge">
+        <div class="icon">🏆</div>
+        <div class="text">
+          <strong>30+ Years</strong>
+          <span>Trusted Advisor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><div class="icon">🛡️</div><span>Tokio Marine Authorized</span></div>
+    <div class="trust-item"><div class="icon">⚡</div><span>Fast Claim Support</span></div>
+    <div class="trust-item"><div class="icon">📋</div><span>Annual Policy Review</span></div>
+    <div class="trust-item"><div class="icon">💬</div><span>Simple Plain-Language Advice</span></div>
+    <div class="trust-item"><div class="icon">📍</div><span>Based in Kota Kinabalu, Sabah</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image-wrap fade-in">
+        <div class="about-img">
+          <img src="data:image/png;base64,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" alt="Wong Ket Pong">
+        </div>
+        <div class="about-card">
+          <div class="num">30+</div>
+          <p>Years of dedicated service protecting families and businesses across Sabah</p>
+        </div>
+      </div>
+
+      <div class="about-content fade-in">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">A Trusted Name in Sabah Insurance</h2>
+
+        <div class="about-quote">
+          "I don't just sell policies — I build lifelong relationships and make sure my clients truly understand what they're protected against."
         </div>
 
-        <div class="credential-card reveal reveal-d2">
-          <div class="cred-company">
-            <div class="cred-icon">🛡️</div>
-            <div class="cred-co-name">
-              <strong>Tokio Marine Insurans (Malaysia) Berhad</strong>
-              <span>Authorised Licensed Agent</span>
-            </div>
-          </div>
+        <p class="about-text">
+          With over three decades of experience as a licensed Tokio Marine agent, I, Wong Ket Pong, have dedicated my career to one purpose: helping individuals, families, and business owners in Sabah make informed decisions that genuinely protect their future.
+        </p>
+        <p class="about-text">
+          I entered the insurance industry because I witnessed firsthand how a single unexpected event — an accident, a medical emergency, a fire — could financially devastate an unprepared family. That experience drove me to become the kind of advisor I wished everyone had access to.
+        </p>
+        <p class="about-text">
+          Today, I work with Tokio Marine — one of Asia's most trusted insurers — to deliver comprehensive coverage solutions tailored to your life stage and goals. My commitment doesn't end when you sign a policy; I stay by your side for annual reviews, claims assistance, and genuine financial guidance.
+        </p>
 
-          <div class="cred-field">
-            <div class="cred-field-label">Agent Name</div>
-            <div class="cred-field-value">Wong Ket Pong</div>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="icon">🤝</div>
+            <div><strong>Personal Approach</strong><span>Every client receives one-on-one attention and customised advice.</span></div>
           </div>
-          <div class="cred-field">
-            <div class="cred-field-label">Office Address</div>
-            <div class="cred-field-value">Damai Plaza Phase 4,<br>Lorong Pokok Kayu Manis 2,<br>88300 Kota Kinabalu, Sabah, Malaysia</div>
+          <div class="about-value">
+            <div class="icon">🔍</div>
+            <div><strong>Transparent Advice</strong><span>I explain every clause in plain Bahasa Malaysia or English.</span></div>
           </div>
-          <div class="cred-field">
-            <div class="cred-field-label">Telephone</div>
-            <div class="cred-field-value"><a href="tel:0198810881">019-881 0881</a></div>
+          <div class="about-value">
+            <div class="icon">📞</div>
+            <div><strong>Always Reachable</strong><span>Fast response via WhatsApp or phone when you need me most.</span></div>
           </div>
-          <div class="cred-field">
-            <div class="cred-field-label">Email</div>
-            <div class="cred-field-value"><a href="mailto:wongkp888@yahoo.com">wongkp888@yahoo.com</a></div>
-          </div>
-
-          <div class="cred-stat-row">
-            <div class="cred-stat">
-              <div class="cred-stat-num">30+</div>
-              <div class="cred-stat-lbl">Years in Service</div>
-            </div>
-            <div class="cred-stat">
-              <div class="cred-stat-num">KK</div>
-              <div class="cred-stat-lbl">Kota Kinabalu Based</div>
-            </div>
-            <div class="cred-stat">
-              <div class="cred-stat-num">TM</div>
-              <div class="cred-stat-lbl">Tokio Marine Certified</div>
-            </div>
+          <div class="about-value">
+            <div class="icon">🔄</div>
+            <div><strong>Long-Term Partnership</strong><span>Annual reviews ensure your coverage grows with your life.</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- SERVICES -->
-  <div class="services-section" id="services">
-    <div class="page-body" style="padding-top:0;padding-bottom:0;">
-      <div class="section-label reveal">Areas of Cover</div>
-      <h2 class="section-title reveal reveal-d1">Insurance <em>Solutions</em></h2>
-      <p class="services-intro reveal reveal-d2">A comprehensive range of personal and commercial insurance products, each tailored to your specific circumstances and risk profile.</p>
-      <div class="services-table">
-        <div class="svc-cell reveal reveal-d1">
-          <div class="svc-num">01</div>
-          <div class="svc-title">Property Insurance</div>
-          <div class="svc-desc">Coverage for residential and commercial properties against fire, natural perils, theft, and unforeseen damage.</div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">What I Offer</div>
+      <h2 class="section-title">Insurance Solutions for Every Life Stage</h2>
+      <p class="section-desc">Whether you're protecting your home, health, car, or travel plans, I'll help you find the right Tokio Marine coverage at the right value.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-card-top">
+          <div class="service-icon-wrap"><div class="service-icon">🏠</div></div>
+          <div class="service-title">Property Insurance</div>
+          <p class="service-desc">Protect your home or business premises against fire, flood, theft, and unexpected structural damage. Your property is likely your biggest asset — guard it properly.</p>
+          <ul class="service-benefits">
+            <li>Fire & perils coverage</li>
+            <li>Flood & natural disaster protection</li>
+            <li>Theft & burglary coverage</li>
+            <li>Renovation & content protection</li>
+          </ul>
         </div>
-        <div class="svc-cell reveal reveal-d2">
-          <div class="svc-num">02</div>
-          <div class="svc-title">Motor Insurance</div>
-          <div class="svc-desc">Third-party and comprehensive motor plans designed to protect your vehicle and its passengers on every journey.</div>
+        <div class="service-suitable">Ideal for: <span>Homeowners, landlords, SME business owners</span></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-top">
+          <div class="service-icon-wrap"><div class="service-icon">🚗</div></div>
+          <div class="service-title">Motor Insurance</div>
+          <p class="service-desc">Comprehensive or third-party motor coverage that protects you from accident costs, theft, and liability — so you drive with complete peace of mind.</p>
+          <ul class="service-benefits">
+            <li>Comprehensive & third-party options</li>
+            <li>Windshield & flood add-ons</li>
+            <li>24/7 roadside assistance</li>
+            <li>Smooth, fast claims processing</li>
+          </ul>
         </div>
-        <div class="svc-cell reveal reveal-d3">
-          <div class="svc-num">03</div>
-          <div class="svc-title">Business Insurance</div>
-          <div class="svc-desc">Protecting your enterprise — from commercial liability and asset coverage to workforce protection and operational continuity.</div>
+        <div class="service-suitable">Ideal for: <span>Car owners, families with multiple vehicles</span></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-top">
+          <div class="service-icon-wrap"><div class="service-icon">🏥</div></div>
+          <div class="service-title">Medical Insurance</div>
+          <p class="service-desc">Rising healthcare costs shouldn't stop you from accessing the best treatment. Our medical plans cover hospitalisation, specialist care, and critical illness treatments.</p>
+          <ul class="service-benefits">
+            <li>Hospitalisation & surgery coverage</li>
+            <li>Specialist & outpatient care</li>
+            <li>Critical illness riders available</li>
+            <li>Annual & lifetime limit options</li>
+          </ul>
         </div>
-        <div class="svc-cell reveal reveal-d4">
-          <div class="svc-num">04</div>
-          <div class="svc-title">Personal Accident</div>
-          <div class="svc-desc">Financial security for you and your dependents in the event of accidental injury, disability, or untimely loss.</div>
+        <div class="service-suitable">Ideal for: <span>Individuals, families, employees & retirees</span></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-top">
+          <div class="service-icon-wrap"><div class="service-icon">🦺</div></div>
+          <div class="service-title">Personal Accident Insurance</div>
+          <p class="service-desc">Accidents happen without warning. This coverage provides financial support for you and your family in the event of accidental injury, disability, or death.</p>
+          <ul class="service-benefits">
+            <li>Accidental death & permanent disability</li>
+            <li>Medical expense reimbursement</li>
+            <li>24-hour worldwide coverage</li>
+            <li>Affordable annual premiums</li>
+          </ul>
         </div>
-        <div class="svc-cell reveal reveal-d5">
-          <div class="svc-num">05</div>
-          <div class="svc-title">Travel Insurance</div>
-          <div class="svc-desc">Comprehensive travel protection covering medical emergencies, cancellations, loss of baggage, and personal liability.</div>
+        <div class="service-suitable">Ideal for: <span>Working adults, parents, manual workers</span></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-card-top">
+          <div class="service-icon-wrap"><div class="service-icon">✈️</div></div>
+          <div class="service-title">Travel Insurance</div>
+          <p class="service-desc">Travel confidently knowing you're covered for trip cancellations, medical emergencies abroad, lost luggage, and flight delays — wherever your journey takes you.</p>
+          <ul class="service-benefits">
+            <li>Emergency medical overseas</li>
+            <li>Trip cancellation & curtailment</li>
+            <li>Lost baggage & personal belongings</li>
+            <li>Individual, family & group plans</li>
+          </ul>
         </div>
-        <div class="svc-cell reveal reveal-d6">
-          <div class="svc-num">06</div>
-          <div class="svc-title">Personal Consultation</div>
-          <div class="svc-desc">A complimentary, obligation-free review of your current coverage needs — conducted with care, expertise, and impartiality.</div>
-        </div>
+        <div class="service-suitable">Ideal for: <span>Frequent travelers, families on holiday</span></div>
+      </div>
+
+      <div class="service-card fade-in" style="background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-color: transparent; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 28px;">
+        <div style="font-size: 3rem; margin-bottom: 16px;">💬</div>
+        <div style="color: white; font-size: 1.15rem; font-weight: 700; font-family: 'Playfair Display', serif; margin-bottom: 12px;">Not Sure Which Plan Is Right for You?</div>
+        <p style="color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.65; margin-bottom: 28px;">Book a free 30-minute consultation and I'll help you find the most suitable coverage for your budget and lifestyle.</p>
+        <a href="https://wa.me/60198810881?text=Hi%20Mr.%20Wong,%20I%20would%20like%20a%20free%20insurance%20consultation." target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 14px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE ME -->
+<section id="why">
+  <div class="container" style="position: relative; z-index: 1;">
+    <div class="fade-in">
+      <div class="section-label">Why Choose Me</div>
+      <h2 class="section-title">What Sets Me Apart</h2>
+      <p class="section-desc">In 30+ years, I've built my practice on one principle: your protection always comes before commissions.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-num">01</div>
+        <div class="why-icon">⏱️</div>
+        <div class="why-title">30+ Years of Expertise</div>
+        <p class="why-desc">Decades of experience across hundreds of clients means I anticipate risks you haven't thought of — and make sure you're protected before they happen.</p>
+      </div>
+
+      <div class="why-card fade-in">
+        <div class="why-num">02</div>
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Fast, Responsive Service</div>
+        <p class="why-desc">I answer calls and WhatsApp messages promptly. When you have an urgent question or need help, you won't be waiting days for a reply.</p>
+      </div>
+
+      <div class="why-card fade-in">
+        <div class="why-num">03</div>
+        <div class="why-icon">🧾</div>
+        <div class="why-title">Hands-On Claim Support</div>
+        <p class="why-desc">I personally guide you through every step of the claims process — from paperwork to follow-up — so you receive what you're rightfully owed.</p>
+      </div>
+
+      <div class="why-card fade-in">
+        <div class="why-num">04</div>
+        <div class="why-icon">📅</div>
+        <div class="why-title">Annual Policy Review</div>
+        <p class="why-desc">Your life changes, and so should your coverage. Every year I proactively review your policies to ensure they still match your needs and budget.</p>
+      </div>
+
+      <div class="why-card fade-in">
+        <div class="why-num">05</div>
+        <div class="why-icon">💡</div>
+        <div class="why-title">Simple, Clear Explanations</div>
+        <p class="why-desc">No confusing insurance jargon. I explain every policy in plain language — Bahasa Malaysia, English, or Mandarin — so you always know exactly what you're covered for.</p>
+      </div>
+
+      <div class="why-card fade-in">
+        <div class="why-num">06</div>
+        <div class="why-icon">🌱</div>
+        <div class="why-title">Financial Planning Mindset</div>
+        <p class="why-desc">I don't just sell coverage — I help you think holistically about protecting your family's financial future at every life stage, from young professional to retiree.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- CONTACT -->
-  <div class="page-body contact-section" id="contact">
-    <div class="section">
-      <div class="contact-grid">
-        <div class="contact-text reveal">
-          <div class="section-label">Contact</div>
-          <h2 class="section-title">Enquire &amp;<br><em>Get in Touch</em></h2>
-          <br>
-          <p>Whether you are reviewing your existing coverage, planning for a new purchase, or simply seeking a second opinion, Wong Ket Pong is available for a courteous and confidential discussion.</p>
-          <p>You are welcome to reach out by telephone or email at your convenience. All enquiries are handled personally and promptly.</p>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-title">What Clients Say About Me</h2>
+      <p class="section-desc">Real experiences from families and business owners I've had the privilege of protecting across Kota Kinabalu and Sabah.</p>
+    </div>
 
-          <div class="contact-table">
-            <div class="ct-row">
-              <div class="ct-label">Agent</div>
-              <div class="ct-value">Wong Ket Pong</div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-label">Telephone</div>
-              <div class="ct-value"><a href="tel:0198810881">019-881 0881</a></div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-label">Email</div>
-              <div class="ct-value"><a href="mailto:wongkp888@yahoo.com">wongkp888@yahoo.com</a></div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-label">Office</div>
-              <div class="ct-value">Damai Plaza Phase 4, Lorong Pokok Kayu Manis 2, 88300 Kota Kinabalu, Sabah, Malaysia</div>
-            </div>
-            <div class="ct-row">
-              <div class="ct-label">Company</div>
-              <div class="ct-value">Tokio Marine Insurans (Malaysia) Berhad</div>
-            </div>
-          </div>
-        </div>
+    <div class="testimonials-grid">
 
-        <div class="action-card reveal reveal-d2">
-          <div class="action-card-eyebrow">Request a Consultation</div>
-          <h3>Secure What<br><em>Matters Most</em></h3>
-          <p>With over 30 years of dedicated service, Wong Ket Pong provides sound, personalised insurance advice to clients throughout Kota Kinabalu and Sabah.</p>
-          <div class="action-btns">
-            <a href="tel:0198810881" class="btn-solid">📞 &nbsp; Call 019-881 0881</a>
-            <a href="mailto:wongkp888@yahoo.com" class="btn-line">✉ &nbsp; wongkp888@yahoo.com</a>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Mr. Wong has been my family's insurance advisor for over 15 years. When my husband was hospitalised unexpectedly, he handled the entire medical claim process for us. Within two weeks, everything was settled. I don't know what we would have done without his help.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LM</div>
+          <div>
+            <strong>Linda Mak</strong>
+            <span>Housewife & Mother of 3, Kota Kinabalu</span>
+            <div class="testimonial-stars">★★★★★</div>
           </div>
         </div>
       </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">As a small business owner, I need someone I can trust completely. Mr. Wong reviewed my property and employee policies thoroughly and identified gaps I wasn't aware of. His annual review service alone is worth more than the premium I pay.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RT</div>
+          <div>
+            <strong>Raymond Teo</strong>
+            <span>Retail Business Owner, Luyang</span>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">I'm a young professional who knew nothing about insurance. Mr. Wong sat with me patiently and explained everything without making me feel pressured. He recommended exactly what I needed — nothing more, nothing less. Truly trustworthy advice.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SN</div>
+          <div>
+            <strong>Sarah Nadia</strong>
+            <span>Civil Engineer, Kota Kinabalu</span>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">My car was badly flooded during last year's heavy rain. I was worried the claim would take months. Mr. Wong jumped in immediately, guided me through every document needed, and I had my settlement within three weeks. Exceptional service.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JL</div>
+          <div>
+            <strong>James Lim</strong>
+            <span>Logistics Executive, Penampang</span>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">We've referred all our siblings and relatives to Mr. Wong. His dedication is unlike any other agent we've met. He replies on WhatsApp even on weekends, and he genuinely cares about whether we're properly covered — not just about making a sale.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">HC</div>
+          <div>
+            <strong>Helen Chin</strong>
+            <span>Teacher & Parent, Damai</span>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">I've had travel insurance from Mr. Wong for years. When I had a medical emergency in Bangkok, I was so relieved everything was covered smoothly. He had briefed me beforehand on exactly what to do if something went wrong. That preparation made all the difference.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MW</div>
+          <div>
+            <strong>Michael Wong</strong>
+            <span>Frequent Traveler & Entrepreneur</span>
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-</main>
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Common Questions</div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Have a question about insurance? Here are the most common ones I hear — answered in plain language.</p>
+    </div>
 
-<!-- ─── FOOTER ─── -->
+    <div class="faq-grid fade-in">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Why is medical insurance important even if I'm healthy now?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">Medical emergencies are unpredictable. A single hospitalisation in a private hospital can cost RM 20,000–RM 100,000 or more. Medical insurance protects your savings and ensures you receive treatment without financial stress. The younger and healthier you are when you start, the lower your premium.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How does the insurance claims process work?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">When an insured event occurs, you notify me immediately. I guide you through the required documentation, submit the claim to Tokio Marine on your behalf, and follow up until settlement. My role is to make the process as smooth and stress-free as possible for you — you never have to navigate it alone.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What type of insurance is most important for a family?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">For families, I typically recommend prioritising: (1) Medical insurance for all members, (2) Personal accident coverage, (3) Property insurance for your home, and (4) Motor insurance. The right combination depends on your family size, age, income, and lifestyle — which is exactly what I help you assess during a free consultation.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Can I customise my insurance coverage?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">Absolutely. Tokio Marine offers flexible plans with various riders and add-ons. For example, you can add flood protection to your property policy, or include critical illness coverage on top of your medical plan. During our consultation, I'll help you build a personalised package that fits your needs and budget precisely.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          I already have coverage from my employer. Do I still need personal insurance?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">Employer-provided coverage is often limited — it may not cover your dependants, typically ceases when you leave the company, and usually has low benefit limits. Personal insurance fills these gaps, continues regardless of employment, and can be tailored to your specific family needs. I can review your existing employer coverage and recommend what supplementary protection makes sense.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How often should I review my insurance policies?
+          <div class="faq-toggle">+</div>
+        </button>
+        <div class="faq-answer">At minimum, once a year — which is exactly the service I provide to all my clients. Major life events like marriage, having children, buying property, starting a business, or reaching retirement age are also important triggers for a review. Your coverage should always reflect your current life circumstances and financial obligations.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Talk About Your Protection</h2>
+      <p class="section-desc">Ready for a no-obligation consultation? Reach out via WhatsApp, phone, or email — I'll respond promptly.</p>
+    </div>
+
+    <div class="contact-grid" style="margin-top: 56px;">
+      <div class="contact-info fade-in">
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+60198810881">019-881 0881</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:wongkp888@yahoo.com">wongkp888@yahoo.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Office Address</strong>
+            <p>Damai Plaza Phase 4,<br>Lorong Pokok Kayu Manis 2,<br>88300 Kota Kinabalu, Sabah, Malaysia</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <strong>Office Hours</strong>
+            <p>Monday – Friday: 9:00 AM – 5:30 PM<br>Saturday: 9:00 AM – 1:00 PM</p>
+          </div>
+        </div>
+
+        <div class="contact-cta-row">
+          <a href="https://wa.me/60198810881?text=Hi%20Mr.%20Wong,%20I%20would%20like%20a%20free%20insurance%20consultation." target="_blank" class="btn-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Now
+          </a>
+          <a href="tel:+60198810881" class="btn-call">
+            📞 Call Me
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-map fade-in">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3990.2285012!2d116.0785!3d5.9930!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x323b6752a3c44b6b%3A0x3a5a87a3b7ef2bd2!2sDamai%20Plaza%2C%20Kota%20Kinabalu%2C%20Sabah!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <strong>Wong Ket Pong</strong> &nbsp;—&nbsp; Licensed Insurance Agent
-    </div>
-    <div class="footer-right">
-      Tokio Marine Insurans (Malaysia) Berhad<br>
-      Damai Plaza Phase 4, Kota Kinabalu, Sabah &nbsp;·&nbsp; © 2025
-    </div>
+  <div class="footer-logo">
+    <img src="data:image/png;base64,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" alt="Tokio Marine">
   </div>
+  <p style="color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 500; margin-bottom: 4px;">Wong Ket Pong</p>
+  <p>Licensed Tokio Marine Insurance Advisor · Kota Kinabalu, Sabah, Malaysia</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#why">Why Me</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="copyright">© 2024 Wong Ket Pong · Tokio Marine Insurance · All rights reserved · 019-881 0881 · wongkp888@yahoo.com</p>
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/60198810881?text=Hi%20Mr.%20Wong,%20I%20would%20like%20a%20free%20insurance%20consultation." class="float-wa" target="_blank" aria-label="WhatsApp Mr. Wong">
+  <div class="float-wa-tooltip">Chat with Mr. Wong</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
 <script>
-  const els = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  els.forEach(el => obs.observe(el));
+  // Mobile menu toggle
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.remove('open');
+    });
+  });
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    var item = btn.parentElement;
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll fade-in
+  var fadeEls = document.querySelectorAll('.fade-in');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(function(el) { observer.observe(el); });
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(10,22,40,0.99)';
+      nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.background = 'rgba(10,22,40,0.96)';
+      nav.style.boxShadow = 'none';
+    }
+  });
 </script>
+
 </body>
 </html>
